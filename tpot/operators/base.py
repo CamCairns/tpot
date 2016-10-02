@@ -129,6 +129,7 @@ class Operator(object):
 
         # Search two levels deep and report leaves in inheritance tree
         for operator_type in cls.__subclasses__():
+            print("operator_type", operator_type)
             for operator in operator_type.__subclasses__():
                 operators.add(operator())  # Instantiate class and append
 

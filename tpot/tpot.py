@@ -35,6 +35,7 @@ class TPOTClassifier(TPOTBase):
             TPOT Pipeline operator being tested
 
         """
+        print "op.classification", op.classification
         return not op.classification
 
 
@@ -52,4 +53,5 @@ class TPOTRegressor(TPOTBase):
             TPOT Pipeline operator being tested
 
         """
+        print "op.classification", op.classification
         return not op.regression

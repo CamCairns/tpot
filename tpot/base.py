@@ -193,6 +193,7 @@ class TPOTBase(BaseEstimator):
                 continue
 
             if op.root:
+                print("op.root", op.root)
                 # We need to add rooted primitives twice so that they can
                 # return both an Output_DF (and thus be the root of the tree),
                 # and return a np.ndarray so they can exist elsewhere in the
