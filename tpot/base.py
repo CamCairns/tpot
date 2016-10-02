@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-"""
+'''
 Copyright 2016 Randal S. Olson
 
 This file is part of the TPOT library.
@@ -16,7 +16,7 @@ FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
 details. You should have received a copy of the GNU General Public License along
 with the TPOT library. If not, see http://www.gnu.org/licenses/.
 
-"""
+'''
 
 from __future__ import print_function
 import random
@@ -50,15 +50,15 @@ from .metrics import SCORERS
 
 
 class TPOTBase(BaseEstimator):
-    """TPOT automatically creates and optimizes machine learning pipelines using
-    genetic programming"""
+    '''TPOT automatically creates and optimizes machine learning pipelines using
+    genetic programming'''
 
     def __init__(self, population_size=100, generations=100,
                  mutation_rate=0.9, crossover_rate=0.05,
                  scoring=None, num_cv_folds=3, max_time_mins=None,
                  random_state=None, verbosity=0,
                  disable_update_check=False):
-        """Sets up the genetic programming algorithm for pipeline optimization.
+        '''Sets up the genetic programming algorithm for pipeline optimization.
 
         Parameters
         ----------
@@ -111,11 +111,19 @@ class TPOTBase(BaseEstimator):
         disable_update_check: bool (default: False)
             Flag indicating whether the TPOT version checker should be disabled.
 
+        Attributes
+        -------
+            _fitted_pipeline: A sklearn.Pipeline object that has been created from a deap.Individual
+            _hof: Pareto-front 'Hall of Fame' deap object - "the Pareto front hall of fame contains
+                    all the non-dominated individuals that ever lived in the population. That means
+                    that the Pareto front hall of fame can contain an infinity of different individuals"
+            _pset: "Primitive set" building blocks of the genetic program.
+
         Returns
         -------
         None
 
-        """
+        '''
         if self.__class__.__name__ == 'TPOTBase':
             raise RuntimeError('Do not instantiate the TPOTBase class directly; '
                                'use TPOTRegressor or TPOTClassifier instead.')
@@ -173,13 +181,14 @@ class TPOTBase(BaseEstimator):
         self._setup_toolbox()
 
     def _setup_pset(self):
-        self._pset = gp.PrimitiveSetTyped('MAIN', [np.ndarray], Output_DF)
+        self._pset = gp.PrimitiveSetTyped('MAIN', [np.ndarray], Output_DF)  # What the hell is np.ndarray doing here??
 
         # Rename pipeline input to "input_df"
         self._pset.renameArguments(ARG0='input_matrix')
 
         # Add all operators to the primitive set
         for op in operators.Operator.inheritors():
+            print("op", op)
             if self._ignore_operator(op):
                 continue
 
@@ -245,7 +254,7 @@ class TPOTBase(BaseEstimator):
         self._toolbox.register('mutate', self._random_mutation_operator)
 
     def fit(self, features, classes):
-        """Fits a machine learning pipeline that maximizes classification score
+        '''Fits a machine learning pipeline that maximizes classification score
         on the provided data
 
         Uses genetic programming to optimize a machine learning pipeline that
@@ -264,7 +273,7 @@ class TPOTBase(BaseEstimator):
         -------
         None
 
-        """
+        '''
         features = features.astype(np.float64)
 
         # Set the seed for the GP run
@@ -278,7 +287,7 @@ class TPOTBase(BaseEstimator):
         pop = self._toolbox.population(n=self.population_size)
 
         def pareto_eq(ind1, ind2):
-            """Determines whether two individuals are equal on the Pareto front
+            '''Determines whether two individuals are equal on the Pareto front
 
             Parameters
             ----------
@@ -293,7 +302,7 @@ class TPOTBase(BaseEstimator):
                 Boolean indicating whether the two individuals are equal on
                 the Pareto front
 
-            """
+            '''
             return np.all(ind1.fitness.values == ind2.fitness.values)
 
         self._hof = tools.ParetoFront(similar=pareto_eq)
@@ -330,7 +339,13 @@ class TPOTBase(BaseEstimator):
             if self._hof:
                 top_score = -5000.
 
+                # print("_hopf", self._hof.items, reversed(self._hof.keys))
+                # print("bull", zip(self._hof.items, reversed(self._hof.keys)))
                 for pipeline, pipeline_scores in zip(self._hof.items, reversed(self._hof.keys)):
+                    # print("pipeline", pipeline, pipeline_scores)
+                    # print(pipeline_scores.wvalues[:])
+
+                    # print("optimsed_pipline", self._optimized_pipeline)
                     if pipeline_scores.wvalues[1] > top_score:
                         self._optimized_pipeline = pipeline
 
@@ -343,6 +358,7 @@ class TPOTBase(BaseEstimator):
                                      'passed the data to TPOT correctly.')
 
                 self._fitted_pipeline = self._toolbox.compile(expr=self._optimized_pipeline)
+                # print("TEST", self._fitted_pipeline, type(self._fitted_pipeline))
 
                 with warnings.catch_warnings():
                     warnings.simplefilter('ignore')
@@ -366,7 +382,7 @@ class TPOTBase(BaseEstimator):
                         self._hof_fitted_pipelines[str(pipeline)].fit(features, classes)
 
     def predict(self, features):
-        """Uses the optimized pipeline to predict the classes for a feature set
+        '''Uses the optimized pipeline to predict the classes for a feature set
 
         Parameters
         ----------
@@ -378,13 +394,13 @@ class TPOTBase(BaseEstimator):
         array-like: {n_samples}
             Predicted classes for the feature matrix
 
-        """
+        '''
         if not self._fitted_pipeline:
             raise ValueError('A pipeline has not yet been optimized. Please call fit() first.')
         return self._fitted_pipeline.predict(features.astype(np.float64))
 
     def fit_predict(self, features, classes):
-        """Convenience function that fits a pipeline then predicts on the
+        '''Convenience function that fits a pipeline then predicts on the
         provided features
 
         Parameters
@@ -399,12 +415,12 @@ class TPOTBase(BaseEstimator):
         array-like: {n_samples}
             Predicted classes for the provided features
 
-        """
+        '''
         self.fit(features, classes)
         return self.predict(features)
 
     def score(self, testing_features, testing_classes):
-        """Estimates the balanced testing accuracy of the optimized pipeline.
+        '''Estimates the balanced testing accuracy of the optimized pipeline.
 
         Parameters
         ----------
@@ -418,7 +434,7 @@ class TPOTBase(BaseEstimator):
         accuracy_score: float
             The estimated test set accuracy
 
-        """
+        '''
         if self._fitted_pipeline is None:
             raise ValueError('A pipeline has not yet been optimized. '
                              'Please call fit() first.')
@@ -428,18 +444,18 @@ class TPOTBase(BaseEstimator):
             testing_features.astype(np.float64), testing_classes.astype(np.float64)))
 
     def set_params(self, **params):
-        """Set the parameters of a TPOT instance
+        '''Set the parameters of a TPOT instance
 
         Returns
         -------
         self
-        """
+        '''
         self.__init__(**params)
 
         return self
 
     def export(self, output_file_name):
-        """Exports the current optimized pipeline as Python code
+        '''Exports the current optimized pipeline as Python code
 
         Parameters
         ----------
@@ -450,15 +466,17 @@ class TPOTBase(BaseEstimator):
         -------
         None
 
-        """
+        '''
         if self._optimized_pipeline is None:
             raise ValueError('A pipeline has not yet been optimized. Please call fit() first.')
 
+        # print(type(self._optimized_pipeline))
+        # print("sklearn", self._compile_to_sklearn(self._optimized_pipeline), type(self._compile_to_sklearn(self._optimized_pipeline)))
         with open(output_file_name, 'w') as output_file:
             output_file.write(export_pipeline(self._optimized_pipeline))
 
     def _compile_to_sklearn(self, expr):
-        """Compiles a DEAP pipeline into a sklearn pipeline
+        '''Compiles a DEAP pipeline into a sklearn pipeline
 
         Parameters
         ----------
@@ -468,13 +486,15 @@ class TPOTBase(BaseEstimator):
         Returns
         -------
         sklearn_pipeline: sklearn.pipeline.Pipeline
-        """
+        '''
+        # print("expr", expr)
+        # print("expr_to_tree", expr_to_tree(expr))
         sklearn_pipeline = generate_pipeline_code(expr_to_tree(expr))
 
         return eval(sklearn_pipeline, self.operators_context)
 
     def _set_param_recursive(self, pipeline_steps, parameter, value):
-        """Recursively iterates through all objects in the pipeline and sets the given parameter to the specified value
+        '''Recursively iterates through all objects in the pipeline and sets the given parameter to the specified value
 
         Parameters
         ----------
@@ -489,7 +509,7 @@ class TPOTBase(BaseEstimator):
         -------
         None
 
-        """
+        '''
         for (_, obj) in pipeline_steps:
             recursive_attrs = ['steps', 'transformer_list', 'estimators']
 
@@ -502,7 +522,7 @@ class TPOTBase(BaseEstimator):
                     setattr(obj, parameter, value)
 
     def _evaluate_individual(self, individual, features, classes):
-        """Determines the `individual`'s fitness
+        '''Determines the `individual`'s fitness
 
         Parameters
         ----------
@@ -522,7 +542,7 @@ class TPOTBase(BaseEstimator):
             Returns a float value indicating the `individual`'s fitness
             according to its performance on the provided data
 
-        """
+        '''
 
         try:
             if self.max_time_mins:
@@ -577,7 +597,7 @@ class TPOTBase(BaseEstimator):
 
     @_gp_new_generation
     def _combined_selection_operator(self, individuals, k):
-        """Perform NSGA2 selection on the population according to their Pareto fitness
+        '''Perform NSGA2 selection on the population according to their Pareto fitness
 
         Parameters
         ----------
@@ -591,11 +611,11 @@ class TPOTBase(BaseEstimator):
         fitness: list
             Returns a list of individuals that were selected
 
-        """
+        '''
         return tools.selNSGA2(individuals, int(k / 5.)) * 5
 
     def _random_mutation_operator(self, individual):
-        """Perform a replacement, insert, or shrink mutation on an individual
+        '''Perform a replacement, insert, or shrink mutation on an individual
 
         Parameters
         ----------
@@ -608,7 +628,7 @@ class TPOTBase(BaseEstimator):
         fitness: list
             Returns the individual with one of the mutations applied to it
 
-        """
+        '''
         mutation_techniques = [
             partial(gp.mutUniform, expr=self._toolbox.expr_mut, pset=self._pset),
             partial(gp.mutInsert, pset=self._pset),
@@ -617,7 +637,7 @@ class TPOTBase(BaseEstimator):
         return np.random.choice(mutation_techniques)(individual)
 
     def _gen_grow_safe(self, pset, min_, max_, type_=None):
-        """Generate an expression where each leaf might have a different depth
+        '''Generate an expression where each leaf might have a different depth
         between *min* and *max*.
 
         Parameters
@@ -636,17 +656,17 @@ class TPOTBase(BaseEstimator):
         -------
         individual: list
             A grown tree with leaves at possibly different depths.
-        """
+        '''
         def condition(height, depth, type_):
-            """Expression generation stops when the depth is equal to height or
-            when it is randomly determined that a a node should be a terminal"""
+            '''Expression generation stops when the depth is equal to height or
+            when it is randomly determined that a a node should be a terminal'''
             return type_ not in [np.ndarray, Output_DF] or depth == height
 
         return self._generate(pset, min_, max_, condition, type_)
 
     # Generate function stolen straight from deap.gp.generate
     def _generate(self, pset, min_, max_, condition, type_=None):
-        """Generate a Tree as a list of list. The tree is build from the root to
+        '''Generate a Tree as a list of list. The tree is build from the root to
         the leaves, and it stop growing when the condition is fulfilled.
 
         Parameters
@@ -670,7 +690,7 @@ class TPOTBase(BaseEstimator):
         individual: list
             A grown tree with leaves at possibly different depths
             dependending on the condition function.
-        """
+        '''
         if type_ is None:
             type_ = pset.ret
         expr = []

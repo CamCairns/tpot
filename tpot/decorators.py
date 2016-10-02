@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-"""
+'''
 Copyright 2016 Randal S. Olson
 
 This file is part of the TPOT library.
@@ -16,13 +16,13 @@ FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
 details. You should have received a copy of the GNU General Public License along
 with the TPOT library. If not, see http://www.gnu.org/licenses/.
 
-"""
+'''
 
 from functools import wraps
 
 
 def _gp_new_generation(func):
-    """Decorator that wraps functions that indicate the beginning of a new GP
+    '''Decorator that wraps functions that indicate the beginning of a new GP
     generation.
 
     Parameters
@@ -34,10 +34,10 @@ def _gp_new_generation(func):
     -------
     wrapped_func: function
         A wrapper function around the func parameter
-    """
+    '''
     @wraps(func)
     def wrapped_func(self, *args, **kwargs):
-        """Increment _gp_generation and bump pipeline count if necessary"""
+        '''Increment _gp_generation and bump pipeline count if necessary'''
         ret = func(self, *args, **kwargs)
         self._gp_generation += 1
 

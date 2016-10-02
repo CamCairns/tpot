@@ -1,0 +1,1112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PMML xmlns="http://www.dmg.org/PMML-4_3" version="4.3">
+	<Header>
+		<Application name="JPMML-SkLearn" version="1.1.2"/>
+		<Timestamp>2016-09-30T19:14:22Z</Timestamp>
+	</Header>
+	<MiningBuildTask>
+		<Extension name="mapper" value="repr(mapper)">DataFrameMapper(default=False,
+        features=[(['Sepal.Length', 'Sepal.Width', 'Petal.Length', 'Petal.Width'], None), ('Species', None)],
+        sparse=False)</Extension>
+		<Extension name="estimator" value="repr(estimator)">KNeighborsClassifier(algorithm='auto', leaf_size=30, metric='minkowski',
+           metric_params=None, n_jobs=1, n_neighbors=5, p=2,
+           weights='uniform')</Extension>
+	</MiningBuildTask>
+	<DataDictionary>
+		<DataField name="Sepal.Length" optype="continuous" dataType="float"/>
+		<DataField name="Sepal.Width" optype="continuous" dataType="float"/>
+		<DataField name="Petal.Length" optype="continuous" dataType="float"/>
+		<DataField name="Petal.Width" optype="continuous" dataType="float"/>
+		<DataField name="Species" optype="categorical" dataType="integer">
+			<Value value="0"/>
+			<Value value="1"/>
+			<Value value="2"/>
+		</DataField>
+	</DataDictionary>
+	<NearestNeighborModel functionName="regression" numberOfNeighbors="5" categoricalScoringMethod="majorityVote">
+		<MiningSchema>
+			<MiningField name="Species" usageType="target"/>
+			<MiningField name="Sepal.Length"/>
+			<MiningField name="Sepal.Width"/>
+			<MiningField name="Petal.Length"/>
+			<MiningField name="Petal.Width"/>
+		</MiningSchema>
+		<Output>
+			<OutputField name="neighbor_1" optype="categorical" dataType="string" feature="entityId" rank="1"/>
+			<OutputField name="neighbor_2" optype="categorical" dataType="string" feature="entityId" rank="2"/>
+			<OutputField name="neighbor_3" optype="categorical" dataType="string" feature="entityId" rank="3"/>
+			<OutputField name="neighbor_4" optype="categorical" dataType="string" feature="entityId" rank="4"/>
+			<OutputField name="neighbor_5" optype="categorical" dataType="string" feature="entityId" rank="5"/>
+		</Output>
+		<TrainingInstances isTransformed="true">
+			<InstanceFields>
+				<InstanceField field="Species" column="y"/>
+				<InstanceField field="Sepal.Length" column="x1"/>
+				<InstanceField field="Sepal.Width" column="x2"/>
+				<InstanceField field="Petal.Length" column="x3"/>
+				<InstanceField field="Petal.Width" column="x4"/>
+			</InstanceFields>
+			<InlineTable>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.1</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.5</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.4</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.9</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.4</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.7</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.2</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.3</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.6</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.1</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.5</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.6</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.4</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.4</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.9</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.7</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.4</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.6</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.4</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.4</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.3</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.4</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.5</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.4</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.9</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.4</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.9</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.1</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.5</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.1</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.4</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.7</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.5</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.8</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.4</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.6</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.8</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.4</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.1</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.3</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.1</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.1</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.8</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.2</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.7</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.4</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.5</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.4</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.4</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.9</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.3</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.4</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.1</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.5</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.4</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.3</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.7</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.8</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.7</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.3</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.1</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.8</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.5</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.3</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.4</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.4</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.7</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.1</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.7</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.5</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.4</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.6</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.6</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.1</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.3</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.7</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.5</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.8</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.4</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.9</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.6</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.4</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.6</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.4</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.2</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.5</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.5</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.2</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.4</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.4</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.7</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.2</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.6</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.8</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.1</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.6</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.4</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.4</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.5</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.4</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.2</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.1</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.5</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.1</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.5</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.2</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.4</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.9</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.1</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.5</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.1</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.2</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.2</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.5</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.5</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.3</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.9</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.1</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.5</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.1</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.4</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.3</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.1</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.4</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.5</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.5</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.3</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.3</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.5</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.3</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.3</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.3</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.4</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.2</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.3</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.5</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.6</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.6</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.1</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.8</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.9</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.4</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.8</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.4</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.3</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.1</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.8</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.6</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.6</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.2</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.4</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.3</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.7</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.5</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.3</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.4</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">0.2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">7</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.2</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.7</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.4</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.4</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.2</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.5</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.5</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.9</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.1</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.9</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.5</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.5</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.3</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.3</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.5</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.8</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.6</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.5</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.7</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.8</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.5</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.3</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.3</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.3</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.7</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.6</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.9</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.4</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.3</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.6</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.9</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.6</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.3</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.2</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.7</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.9</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.4</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.5</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.9</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.2</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.5</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.2</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.1</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.9</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.7</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.4</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.6</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.9</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.6</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.3</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.7</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.1</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.4</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.4</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.6</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.5</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.5</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.8</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.7</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.1</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.2</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.2</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.5</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.5</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.6</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.5</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.9</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.1</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.9</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.2</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.8</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.8</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.1</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.8</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.3</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.3</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.5</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.9</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.5</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.1</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.8</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.7</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.4</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.9</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.3</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.3</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.6</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.4</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.4</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.8</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.8</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.8</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.4</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.7</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.7</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.9</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.5</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.5</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.7</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.6</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.5</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.5</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.4</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.8</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.1</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.5</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.4</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.7</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.8</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.7</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.9</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.7</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.1</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.6</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.4</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.5</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.5</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.4</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.5</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.6</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.7</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.1</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.7</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.5</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.3</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.3</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.4</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.3</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.6</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.1</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.3</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.5</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.5</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.3</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.5</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.6</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.4</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.1</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.6</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.4</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.8</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.6</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.3</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.3</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.6</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.7</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.2</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.3</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.7</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.2</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.7</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.9</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.2</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.3</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.2</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.9</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.3</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.3</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.1</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.5</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.1</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.7</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.8</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.1</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.3</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.3</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.3</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.5</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.8</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.7</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.1</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.9</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">7.1</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.9</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.1</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.3</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.9</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.6</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.8</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.5</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.8</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">7.6</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.6</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.1</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.9</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.5</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.5</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.7</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">7.3</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.9</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.3</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.8</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.7</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.5</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.8</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.8</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">7.2</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.6</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.1</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.5</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.5</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.2</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.1</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.4</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.7</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.3</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.9</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.8</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.5</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.1</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.7</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.5</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.8</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.8</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.1</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.4</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.4</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.2</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.3</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.3</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.5</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.5</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.8</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">7.7</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.8</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.7</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">7.7</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.6</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.9</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.3</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.2</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.5</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.9</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.2</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.7</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.3</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.6</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.8</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.9</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">7.7</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.8</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.7</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.3</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.7</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.9</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.8</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.7</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.3</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.7</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.1</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">7.2</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.2</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.8</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.2</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.8</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.8</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.8</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.1</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.9</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.8</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.4</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.8</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.6</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.1</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">7.2</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.8</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.6</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">7.4</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.8</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.1</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.9</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">7.9</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.8</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.4</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.4</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.8</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.6</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.3</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.8</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.1</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.5</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.1</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.6</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.6</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.4</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">7.7</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.1</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.3</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.3</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.4</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.6</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.4</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.4</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.1</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.5</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.8</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">4.8</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.8</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.9</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.1</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.4</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.1</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.7</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.1</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.6</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.4</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.9</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.1</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.1</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.3</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.8</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.7</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.1</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.9</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.8</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.2</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.9</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.3</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.7</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.3</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.7</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.5</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.7</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.2</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.3</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.3</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.5</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.9</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.5</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.2</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">6.2</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3.4</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.4</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2.3</x4>
+				</row>
+				<row>
+					<y xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">2</y>
+					<x1 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.9</x1>
+					<x2 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">3</x2>
+					<x3 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">5.1</x3>
+					<x4 xmlns:ns2="http://www.dmg.org/PMML-4_3" xmlns="">1.8</x4>
+				</row>
+			</InlineTable>
+		</TrainingInstances>
+		<ComparisonMeasure kind="distance" compareFunction="absDiff">
+			<euclidean/>
+		</ComparisonMeasure>
+		<KNNInputs>
+			<KNNInput field="Sepal.Length"/>
+			<KNNInput field="Sepal.Width"/>
+			<KNNInput field="Petal.Length"/>
+			<KNNInput field="Petal.Width"/>
+		</KNNInputs>
+	</NearestNeighborModel>
+</PMML>

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-"""
+'''
 Copyright 2016 Randal S. Olson
 
 This file is part of the TPOT library.
@@ -16,14 +16,14 @@ FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
 details. You should have received a copy of the GNU General Public License along
 with the TPOT library. If not, see http://www.gnu.org/licenses/.
 
-"""
+'''
 
 import deap
 from . import operators
 
 
 def export_pipeline(exported_pipeline):
-    """Generates the source code of a TPOT Pipeline
+    '''Generates the source code of a TPOT Pipeline
 
     Parameters
     ----------
@@ -35,7 +35,7 @@ def export_pipeline(exported_pipeline):
     pipeline_text: str
         The source code representing the pipeline
 
-    """
+    '''
     # Unroll the nested function calls into serial code
     pipeline_tree = expr_to_tree(exported_pipeline)
 
@@ -49,7 +49,7 @@ def export_pipeline(exported_pipeline):
 
 
 def expr_to_tree(ind):
-    """Convert the unstructured DEAP pipeline into a tree data-structure
+    '''Convert the unstructured DEAP pipeline into a tree data-structure
 
     Parameters
     ----------
@@ -67,7 +67,7 @@ def expr_to_tree(ind):
         pipeline_tree:
             ['DecisionTreeClassifier', 'input_matrix', 28.0]
 
-    """
+    '''
     def prim_to_list(prim, args):
         if isinstance(prim, deap.gp.Terminal):
             return prim.value
@@ -89,7 +89,7 @@ def expr_to_tree(ind):
 
 
 def generate_import_code(pipeline):
-    """Generate all library import calls for use in TPOT.export()
+    '''Generate all library import calls for use in TPOT.export()
 
     Parameters
     ----------
@@ -102,7 +102,7 @@ def generate_import_code(pipeline):
        The Python code that imports all required library used in the current
        optimized pipeline
 
-    """
+    '''
     # operator[1] is the name of the operator
     operators_used = [x.name for x in pipeline if isinstance(x, deap.gp.Primitive)]
 
@@ -143,19 +143,19 @@ def generate_import_code(pipeline):
         module_list = ', '.join(sorted(pipeline_imports[key]))
         pipeline_text += 'from {} import {}\n'.format(key, module_list)
 
-    pipeline_text += """
+    pipeline_text += '''
 # NOTE: Make sure that the class is labeled 'class' in the data file
 tpot_data = np.recfromcsv('PATH/TO/DATA/FILE', delimiter='COLUMN_SEPARATOR', dtype=np.float64)
 features = np.delete(tpot_data.view(np.float64).reshape(tpot_data.size, -1), tpot_data.dtype.names.index('class'), axis=1)
 training_features, testing_features, training_classes, testing_classes = \\
     train_test_split(features, tpot_data['class'], random_state=42)
-"""
+'''
 
     return pipeline_text
 
 
 def pipeline_code_wrapper(pipeline_code):
-    """Generate code specific to the execution of the sklearn pipeline
+    '''Generate code specific to the execution of the sklearn pipeline
 
     Parameters
     ----------
@@ -166,17 +166,17 @@ def pipeline_code_wrapper(pipeline_code):
     -------
     Source code for the sklearn pipeline and calls to fit and predict
 
-    """
-    return """
+    '''
+    return '''
 exported_pipeline = {}
 
 exported_pipeline.fit(training_features, training_classes)
 results = exported_pipeline.predict(testing_features)
-""".format(pipeline_code)
+'''.format(pipeline_code)
 
 
 def generate_pipeline_code(pipeline_tree):
-    """Generate code specific to the construction of the sklearn Pipeline
+    '''Generate code specific to the construction of the sklearn Pipeline
 
     Parameters
     ----------
@@ -187,7 +187,7 @@ def generate_pipeline_code(pipeline_tree):
     -------
     Source code for the sklearn pipeline
 
-    """
+    '''
     steps = process_operator(pipeline_tree)
     pipeline_text = "make_pipeline(\n{STEPS}\n)".format(STEPS=_indent(",\n".join(steps), 4))
     return pipeline_text
@@ -222,7 +222,7 @@ def process_operator(operator, depth=0):
 
 
 def _indent(text, amount):
-    """Indent a multiline string by some number of spaces
+    '''Indent a multiline string by some number of spaces
 
     Parameters
     ----------
@@ -235,7 +235,7 @@ def _indent(text, amount):
     -------
     indented_text
 
-    """
+    '''
     indentation = amount * ' '
     return indentation + ('\n' + indentation).join(text.split('\n'))
 
@@ -250,18 +250,18 @@ def _combine_dfs(left, right):
             tpot_op = operators.Operator.get_by_name(branch[0])
 
             if tpot_op.root:
-                return """make_union(VotingClassifier([('branch',
+                return '''make_union(VotingClassifier([('branch',
 {}
-)]), FunctionTransformer(lambda X: X))""".format(_indent(process_operator(branch)[0], 4))
+)]), FunctionTransformer(lambda X: X))'''.format(_indent(process_operator(branch)[0], 4))
             else:
                 return process_operator(branch)[0]
         else:  # We're going to have to make a pipeline
             tpot_op = operators.Operator.get_by_name(branch[0])
 
             if tpot_op.root:
-                return """make_union(VotingClassifier([('branch',
+                return '''make_union(VotingClassifier([('branch',
 {}
-)]), FunctionTransformer(lambda X: X))""".format(_indent(generate_pipeline_code(branch), 4))
+)]), FunctionTransformer(lambda X: X))'''.format(_indent(generate_pipeline_code(branch), 4))
             else:
                 return generate_pipeline_code(branch)
 
