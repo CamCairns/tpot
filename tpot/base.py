@@ -43,7 +43,9 @@ from update_checker import update_check
 from ._version import __version__
 from .export_utils import export_pipeline, expr_to_tree, generate_pipeline_code
 from .decorators import _gp_new_generation
+print("start")
 from . import operators
+print("done")
 from .operators import CombineDFs
 from .gp_types import Bool, Output_DF
 from .metrics import SCORERS
@@ -187,7 +189,7 @@ class TPOTBase(BaseEstimator):
         self._pset.renameArguments(ARG0='input_matrix')
 
         # Add all operators to the primitive set
-        for op in operators.Operator.inheritors():
+        for op in operators.Operator.inheritors():  ## WHERE does this inheritors come from??
             print("op", op)
             if self._ignore_operator(op):
                 continue

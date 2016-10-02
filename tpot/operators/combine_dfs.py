@@ -24,4 +24,5 @@ class CombineDFs(object):
 
     @property
     def __name__(self):
+        print("self.__class__.__name__", self.__class__.__name__)
         return self.__class__.__name__

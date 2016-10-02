@@ -131,6 +131,7 @@ class Operator(object):
         for operator_type in cls.__subclasses__():
             print("operator_type", operator_type)
             for operator in operator_type.__subclasses__():
+                print("operator_type.__subclasses__()", operator)
                 operators.add(operator())  # Instantiate class and append
 
         return operators
